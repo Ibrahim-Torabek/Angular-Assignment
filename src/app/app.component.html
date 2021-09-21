@@ -353,6 +353,10 @@
   <app-content-card></app-content-card>
 
 
+  <app-new-content [content]="contents.contents[0]" title = "First"></app-new-content>
+  <app-new-content [content]="contents.contents[1]" [title] = "title"></app-new-content>
+
+  <app-new-content *ngFor="let content of contents.contents" [content]="content" [title] = "content.author"></app-new-content>
 
 
 
