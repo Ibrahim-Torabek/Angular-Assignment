@@ -3,6 +3,9 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
+    "gc": "ng generate component",
+    "gp": "ng generate pipe",
+    "gd": "ng generate directive",
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
