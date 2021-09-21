@@ -17,20 +17,24 @@ export class ContentList {
   }
 
   content(index: number): string{
-    let content = this.contents[index];
+    let content = this._contents[index];
     let html: string;
 
-    html = "ID: " + content.id;
-    html += "<br>Author: " + content.author;
-    html += "<br>Title: " + content.title;
+    if(index > this._contents.length - 1)
+      return "<span style='background-color: #1976d2'>Error: Requested content out of the list...</span>"
+
+
+    html = "<strong>ID:</strong> " + content.id;
+    html += "<br><strong>Author:</strong> <i>" + content.author + "</i>";
+    html += "<br><strong>Title:</strong> " + content.title;
 
     // Check if image and type is exist. add the information if exist.
     if (content.imgUrl != null)
       html += "<br><ing src='" + content.imgUrl + "'> "
     if (content.type != null)
-      html += "<br>Type: " + content.type;
+      html += "<br><strong>Type:</strong> " + content.type;
 
-    html += "<br>body: " + content.body;
+    html += "<br><strong>body:</strong> " + content.body;
 
     return html;
   }
