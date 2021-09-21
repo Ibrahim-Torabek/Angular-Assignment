@@ -1,0 +1,20 @@
+.id{
+  color: #1976d2;
+  font-weight: bold;
+}
+
+.name{
+  color: blue;
+  font-size: large;
+}
+
+.title, .body{
+  color: brown;
+  font-size: larger;
+}
+
+.body{
+  color: chocolate;
+  max-width: 350px;
+  border: solid 1px #333333;
+}
