@@ -2,19 +2,51 @@
 <h3>Generate ContentList component</h3>
 <h4>Content List:</h4>
 
-<div class="break-up-my-stuff">
-  <table>
-    <tr>
-      <th>Author</th>
-      <th>Title</th>
-      <th>Body</th>
-    </tr>
-    <tr *ngFor="let content of contents">
-      <td>{{ content.author }}</td>
-      <td>{{ content.title }}</td>
-      <td>{{ content.body }}</td>
-    </tr>
-  </table>
+<div class="break-up-my-stuff" *ngFor="let content of contents">
 
+  <style type="text/css">
+    .tg  {border-collapse:collapse;border-spacing:0;}
+    .tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+      overflow:hidden;padding:10px 5px;word-break:normal;}
+    .tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+      font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+    .tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top}
+    .tg .tg-0lax{text-align:left;vertical-align:top}
+  </style>
+  <table class="tg" style="undefined;table-layout: fixed; width: 485px">
+    <colgroup>
+      <col style="width: 132px">
+      <col style="width: 100px">
+      <col style="width: 253px">
+    </colgroup>
+    <thead>
+    <tr>
+      <th class="tg-0pky" rowspan="4"> <img src="assets/person.svg" class="person-image"> </th>
+      <th class="tg-0pky">Name</th>
+      <th class="tg-0pky">{{ content.author }}</th>
+    </tr>
+    <tr>
+      <th class="tg-0pky">Title</th>
+      <th class="tg-0pky">{{ content.title }}</th>
+    </tr>
+    <tr>
+      <th class="tg-0pky">Type</th>
+      <th class="tg-0pky"></th>
+    </tr>
+    <tr>
+      <th class="tg-0pky">Tags</th>
+      <th class="tg-0pky"></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td class="tg-0lax" colspan="3">
+        Body:<br>
+        {{ content.body }}
+      </td>
+    </tr>
+    </tbody>
+  </table>
+<br>
 </div>
 
