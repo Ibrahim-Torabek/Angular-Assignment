@@ -27,6 +27,6 @@ tr:nth-child(even) {
 .tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top}
 .tg .tg-0lax{text-align:left;vertical-align:top; height: 100px}
 
-.person-image{
+.person-image, .blank-image{
   width: 100%;
 }
