@@ -35,4 +35,8 @@ export class ContentListComponent implements OnInit {
 
   }
 
+  showId(id: number){
+    console.log(id);
+  }
+
 }

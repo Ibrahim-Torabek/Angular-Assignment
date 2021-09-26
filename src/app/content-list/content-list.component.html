@@ -4,7 +4,7 @@
 
 <div class="break-up-my-stuff" *ngFor="let content of contents">
 
-  <table class="tg" style="undefined;table-layout: fixed; width: 485px">
+  <table class="tg">
     <colgroup>
       <col style="width: 132px">
       <col style="width: 100px">
@@ -14,7 +14,12 @@
     <tr>
       <th class="tg-0pky" rowspan="4">
         <img src="assets/person.svg" class="blank-image" *ngIf="!content.imgUrl">
-        <img src="{{content.imgUrl}}" class="person-image" id="person-image" *ngIf="content.imgUrl">
+        <img src="{{content.imgUrl}}"
+             class="person-image"
+             id="person1-image"
+             *ngIf="content.imgUrl"
+             (click)="showId(content.id)"
+        >
       </th>
       <th class="tg-0pky">Name</th>
       <th class="tg-0pky">{{ content.author }}</th>
@@ -43,14 +48,4 @@
   </table>
 <br>
 </div>
-<button>Button</button>
-<script>
-
-  const image = document.getElementById("person-image")
-  image.addEventListener("click", display)
-
-  function display(){
-
-  }
-</script>
 
