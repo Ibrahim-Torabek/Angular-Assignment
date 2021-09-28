@@ -360,6 +360,18 @@
 
 
 
+  <div class="card-container">
+    <input #myName class="highlight-card">
+    <br>
+    <button (click)="myName.accept" class="card">Hello</button>
+    <br>
+    <div class="card-small">
+      {{myName.value}}
+    </div>
+  </div>
+
+
+
 
   <!-- Footer -->
   <footer>

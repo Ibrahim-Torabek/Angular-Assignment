@@ -31,4 +31,8 @@ export class AppComponent implements OnInit{
     console.log(this.contents.contents[0].id);
 
   }
+
+  showMyName(){
+
+  }
 }
