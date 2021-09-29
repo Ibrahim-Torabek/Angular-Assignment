@@ -21,7 +21,7 @@
     </tr>
     <tr>
       <th class="tg-0pky">Title</th>
-      <th class="tg-0pky">{{ content.title }}</th>
+      <th class="tg-0pky">{{ content.title | titlecase }}</th>
     </tr>
     <tr *ngIf="content.type">
       <th class="tg-0pky">Type</th>
@@ -29,7 +29,12 @@
     </tr>
     <tr *ngIf="content.tags">
       <th class="tg-0pky">Tags</th>
-      <th class="tg-0pky">{{ content.tags }}</th>
+      <th class="tg-0pky">
+        <span *ngFor="let tag of content.tags; last as isLast">
+          {{ tag | uppercase}}
+          <span *ngIf="!isLast"> | </span>
+        </span>
+      </th>
     </tr>
     </thead>
     <tbody>

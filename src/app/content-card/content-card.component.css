@@ -17,13 +17,11 @@ td, th {
   padding: 8px;
 }
 
+
 .break-up-my-stuff:last-child .tg{
   border: 3px solid;
 }
 
-:host.is-Last .tg{
-  border: 3px solid;
-}
 
 
 tr:nth-child(even) {
@@ -42,3 +40,18 @@ tr:nth-child(even) {
   width: 100%;
 }
 
+:host.is-Last .tg{
+  border: 3px solid;
+}
+
+:host.poem-list .tg{
+  border: #1976d2 solid 2px ;
+}
+
+:host.novel-list .tg{
+  border: orangered solid 2px ;
+}
+
+:host.other-list .tg{
+  border: yellowgreen solid 2px ;
+}

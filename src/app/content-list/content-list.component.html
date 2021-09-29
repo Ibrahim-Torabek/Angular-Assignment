@@ -2,11 +2,31 @@
 <h3>Generate ContentList component</h3>
 <h4>Content List:</h4>
 
+<h2> List of <strong>Novels</strong></h2>
 <app-content-card
-  *ngFor="let content of contents; last  as isLast"
+  *ngFor="let content of (contents | contentType:'Novel'); last  as isLast"
   [content]="content"
   [class.is-Last] = "isLast"
+  class="novel-list"
 >
+</app-content-card>
 
+<h2> List of <strong>Poems</strong></h2>
+<app-content-card
+  *ngFor="let content of (contents | contentType:'Poem'); last  as isLast"
+  [content]="content"
+  [class.is-Last] = "isLast"
+  class="poem-list"
+
+>
+</app-content-card>
+
+<h2> Other  List</h2>
+<app-content-card
+  *ngFor="let content of (contents | contentType:''); last  as isLast"
+  [content]="content"
+  [class.is-Last] = "isLast"
+  class="other-list"
+>
 </app-content-card>
 
