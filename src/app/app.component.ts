@@ -10,6 +10,7 @@ import {Content} from "./helper-files/content-interface";
 export class AppComponent implements OnInit{
 
   title = 'Angular Assignments';
+  today = new Date();
 
   contents: ContentList = new ContentList;
   constructor() {
