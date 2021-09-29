@@ -2,50 +2,11 @@
 <h3>Generate ContentList component</h3>
 <h4>Content List:</h4>
 
-<div class="break-up-my-stuff" *ngFor="let content of contents">
+<app-content-card
+  *ngFor="let content of contents; last  as isLast"
+  [content]="content"
+  [class.is-Last] = "isLast"
+>
 
-  <table class="tg">
-    <colgroup>
-      <col style="width: 132px">
-      <col style="width: 100px">
-      <col style="width: 253px">
-    </colgroup>
-    <thead>
-    <tr>
-      <th class="tg-0pky" rowspan="4">
-        <img src="assets/person.svg" class="blank-image" *ngIf="!content.imgUrl">
-        <img src="{{content.imgUrl}}"
-             class="person-image"
-             id="person1-image"
-             *ngIf="content.imgUrl"
-             (click)="showId(content.id)"
-        >
-      </th>
-      <th class="tg-0pky">Name</th>
-      <th class="tg-0pky">{{ content.author }}</th>
-    </tr>
-    <tr>
-      <th class="tg-0pky">Title</th>
-      <th class="tg-0pky">{{ content.title }}</th>
-    </tr>
-    <tr *ngIf="content.type">
-      <th class="tg-0pky">Type</th>
-      <th class="tg-0pky">{{ content.type }}</th>
-    </tr>
-    <tr *ngIf="content.tags">
-      <th class="tg-0pky">Tags</th>
-      <th class="tg-0pky">{{ content.tags }}</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr>
-      <td class="tg-0lax" colspan="3">
-        Body:<br>
-        {{ content.body }}
-      </td>
-    </tr>
-    </tbody>
-  </table>
-<br>
-</div>
+</app-content-card>
 
