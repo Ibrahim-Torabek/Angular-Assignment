@@ -40,9 +40,7 @@ tr:nth-child(even) {
   width: 100%;
 }
 
-:host.is-Last .tg{
-  border: 3px solid;
-}
+
 
 :host.poem-list .tg{
   border: #1976d2 solid 2px ;
@@ -55,3 +53,8 @@ tr:nth-child(even) {
 :host.other-list .tg{
   border: yellowgreen solid 2px ;
 }
+
+/*:host.is-Last .tg{*/
+/*  border: 3px solid;*/
+/*}*/
+
