@@ -1,51 +1,46 @@
-<h2>Assignment #2</h2>
-<h3>Generate ContentList component</h3>
+<h2>Assignment #3</h2>
+<h3>Generate Content Pipe and make an input field</h3>
+<h4>Input Field:</h4>
+<div class = "input-field">
+  <span>Please enter title:</span>
+  <input #title placeholder="can search by word">
+  <button (click)="searchTitle(title.value)">Search</button>
+</div>
+<div>
+  Search Result:
+  <span *ngIf="searchResult" [innerHTML]="searchResult">
+  </span>
+</div>
 <h4>Content List:</h4>
 
-<div class="break-up-my-stuff" *ngFor="let content of contents">
+<h2> List of <strong>Novels</strong></h2>
+<app-content-card
+  *ngFor="let content of (contents | contentType:'Novel'); last  as isLast"
+  [content]="content"
+  [class.is-Last] = "isLast"
+  [class.result-found] = "content == result"
+  class="novel-list"
+>
+</app-content-card>
 
-  <table class="tg">
-    <colgroup>
-      <col style="width: 132px">
-      <col style="width: 100px">
-      <col style="width: 253px">
-    </colgroup>
-    <thead>
-    <tr>
-      <th class="tg-0pky" rowspan="4">
-        <img src="assets/person.svg" class="blank-image" *ngIf="!content.imgUrl">
-        <img src="{{content.imgUrl}}"
-             class="person-image"
-             id="person1-image"
-             *ngIf="content.imgUrl"
-             (click)="showId(content.id)"
-        >
-      </th>
-      <th class="tg-0pky">Name</th>
-      <th class="tg-0pky">{{ content.author }}</th>
-    </tr>
-    <tr>
-      <th class="tg-0pky">Title</th>
-      <th class="tg-0pky">{{ content.title }}</th>
-    </tr>
-    <tr *ngIf="content.type">
-      <th class="tg-0pky">Type</th>
-      <th class="tg-0pky">{{ content.type }}</th>
-    </tr>
-    <tr *ngIf="content.tags">
-      <th class="tg-0pky">Tags</th>
-      <th class="tg-0pky">{{ content.tags }}</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr>
-      <td class="tg-0lax" colspan="3">
-        Body:<br>
-        {{ content.body }}
-      </td>
-    </tr>
-    </tbody>
-  </table>
-<br>
-</div>
+<h2> List of <strong>Poems</strong></h2>
+<app-content-card
+  *ngFor="let content of (contents | contentType:'Poem'); last  as isLast"
+  [content]="content"
+  [class.is-Last] = "isLast"
+  [class.result-found] = "content == result"
+  class="poem-list"
+
+>
+</app-content-card>
+
+<h2> Other  List</h2>
+<app-content-card
+  *ngFor="let content of (contents | contentType:''); last  as isLast"
+  [content]="content"
+  [class.is-Last] = "isLast"
+  [class.result-found] = "content == result"
+  class="other-list"
+>
+</app-content-card>
 

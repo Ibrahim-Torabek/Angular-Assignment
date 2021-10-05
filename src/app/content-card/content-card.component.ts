@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {Content} from "../helper-files/content-interface";
 
 
 
@@ -9,14 +10,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContentCardComponent implements OnInit {
 
-
+  @Input() content: Content
 
   constructor() {
+    this.content = {author: "", body: "", id: 0, title: ""};
   }
 
   ngOnInit(): void {
 
+  }
 
+  showId(){
+    console.log(this.content.id);
   }
 
 }

@@ -30,3 +30,25 @@ tr:nth-child(even) {
 .person-image, .blank-image{
   width: 100%;
 }
+
+.found{
+  color: #1976d2;
+}
+
+.not-found{
+  color: darkred;
+}
+
+.error{
+  color: red;
+}
+
+.result-found .tg{
+  background-color: lightblue;
+}
+
+.input-field *{
+  font-size: larger;
+  margin-right: 5px;
+  color: cornflowerblue;
+}
