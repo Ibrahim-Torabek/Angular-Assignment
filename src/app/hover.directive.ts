@@ -1,4 +1,4 @@
-import {Directive, ElementRef, HostListener} from '@angular/core';
+import {Directive, ElementRef, HostListener, Input} from '@angular/core';
 
 @Directive({
   selector: '[appHover]'
@@ -12,18 +12,41 @@ export class HoverDirective {
     this.elm = e;
   }
 
-  ngOnInit(): void{
-
-  }
+  @Input() isTag: any;
 
   @HostListener('mouseenter') onMouseEnter(){
 
-    this.elm.nativeElement.style.textDecoration = "underline";
+    if(this.isTag == null)
+      this.setUnderline();
+    else
+      this.boldFontWeight();
+
     //console.log("Mouse Entered")
   }
 
   @HostListener('mouseleave') onMouseLeave(){
+    if(this.isTag == null)
+      this.removeUnderline();
+    else
+      this.normalFontWeight();
+
+  }
+
+  setUnderline(){
+    this.elm.nativeElement.style.textDecoration = "underline";
+  }
+
+  removeUnderline(){
     this.elm.nativeElement.style.textDecoration = 'none';
   }
+
+  boldFontWeight(){
+    this.elm.nativeElement.style.fontWeight = "bold";
+  }
+
+  normalFontWeight(){
+    this.elm.nativeElement.style.fontWeight = "normal";
+  }
+
 
 }

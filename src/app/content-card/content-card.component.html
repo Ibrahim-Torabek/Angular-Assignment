@@ -8,8 +8,9 @@
     <thead>
     <tr>
       <th class="tg-0pky" rowspan="4">
-        <img src="assets/person.svg" class="blank-image" *ngIf="!content.imgUrl">
-        <img src="{{content.imgUrl}}"
+        <img src="assets/person.svg" class="blank-image" *ngIf="!content.imgUrl" alt="Personal Image">
+        <img alt="Personal Image"
+             src="{{content.imgUrl}}"
              class="person-image"
              id="person1-image"
              *ngIf="content.imgUrl"
@@ -35,7 +36,9 @@
       <th class="tg-0pky">Tags</th>
       <th class="tg-0pky">
         <span *ngFor="let tag of content.tags; last as isLast">
-          {{ tag | uppercase}}
+          <span appHover [isTag]="tag">
+            {{ tag | uppercase}}
+          </span>
           <span *ngIf="!isLast"> | </span>
         </span>
       </th>
