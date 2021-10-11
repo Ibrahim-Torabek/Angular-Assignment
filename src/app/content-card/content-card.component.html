@@ -21,7 +21,11 @@
     </tr>
     <tr>
       <th class="tg-0pky">Title</th>
-      <th class="tg-0pky">{{ content.title | titlecase }}</th>
+      <th class="tg-0pky">
+        <span appHover>
+          {{ content.title | titlecase }}
+        </span>
+      </th>
     </tr>
     <tr *ngIf="content.type">
       <th class="tg-0pky">Type</th>
