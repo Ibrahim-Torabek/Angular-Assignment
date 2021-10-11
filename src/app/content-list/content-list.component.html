@@ -15,9 +15,11 @@
 
 <h2> List of <strong>Novels</strong></h2>
 <app-content-card
-  *ngFor="let content of (contents | contentType:'Novel'); last  as isLast"
+  appBorder
+  *ngFor="let content of (contents | contentType:'Novel'); last  as isLast; first as isFirst"
   [content]="content"
-  [class.is-Last] = "isLast"
+  [isFirst]= "isFirst"
+  [isLast]= "isLast"
   [class.result-found] = "content == result"
   class="novel-list"
 >
@@ -25,9 +27,11 @@
 
 <h2> List of <strong>Poems</strong></h2>
 <app-content-card
-  *ngFor="let content of (contents | contentType:'Poem'); last  as isLast"
+  appBorder
+  *ngFor="let content of (contents | contentType:'Poem'); last  as isLast; first as isFirst"
   [content]="content"
-  [class.is-Last] = "isLast"
+  [isLast] = "isLast"
+  [isFirst]="isFirst"
   [class.result-found] = "content == result"
   class="poem-list"
 
@@ -36,9 +40,11 @@
 
 <h2> Other  List</h2>
 <app-content-card
-  *ngFor="let content of (contents | contentType:''); last  as isLast"
+  appBorder
+  *ngFor="let content of (contents | contentType:''); last  as isLast; first as isFirst"
   [content]="content"
-  [class.is-Last] = "isLast"
+  [isFirst]="isFirst"
+  [isLast]="isLast"
   [class.result-found] = "content == result"
   class="other-list"
 >
