@@ -3,7 +3,7 @@
 <h4>Input Field:</h4>
 <div class = "input-field">
   <span>Please enter title:</span>
-  <input #title placeholder="can search by word">
+  <input #title placeholder="can search by word"  (change) = "searchTitle(title.value)">
   <button (click)="searchTitle(title.value)">Search</button>
 </div>
 <div>
