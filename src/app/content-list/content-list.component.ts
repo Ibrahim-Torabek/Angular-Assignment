@@ -64,4 +64,10 @@ export class ContentListComponent implements OnInit {
   }
 
 
+  addContent(newContent: Content){
+    this.contents.push(newContent);
+    this.contents = [...this.contents];
+    // this.contents = Object.assign([], this.contents);
+  }
+
 }

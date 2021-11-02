@@ -1,0 +1,78 @@
+{{ length }}
+<h4>Create a new content</h4>
+<div class="newContent">
+  <div class="field">
+    <div class="label">
+      <label>Author:</label>
+    </div>
+    <div class="input required">
+      <input [(ngModel)]="content.author">
+    </div>
+  </div>
+  <div class="field">
+    <div class="label">
+      <label>Title:</label>
+    </div>
+    <div class="input required">
+      <input [(ngModel)]="content.title">
+    </div>
+  </div>
+  <div class="field">
+    <div class="label">
+      <label>Type:</label>
+    </div>
+    <div class="input">
+      <input [(ngModel)]="content.type" placeholder="Novel or Poem">
+    </div>
+  </div>
+  <div class="field">
+    <div class="label">
+      <label>Tags:</label>
+    </div>
+    <div class="input">
+      <input placeholder="split with space"  [(ngModel)]="content.tags">
+    </div>
+  </div>
+  <div class="field">
+    <div class="label">
+      <label>Body:</label>
+    </div>
+    <div class="input required">
+      <textarea [(ngModel)]="content.body"></textarea>
+    </div>
+  </div>
+  <div class="field">
+    <div class="label">
+      <label>Image URL:</label>
+    </div>
+    <div class="input">
+      <input [(ngModel)]="content.imgUrl">
+    </div>
+  </div>
+  <div class="field">
+    <div class="label">
+      <label></label>
+    </div>
+    <div class="input">
+      <button (click)="createContent()"> Create </button>
+
+    </div>
+  </div>
+  <div class="field">
+    <div class="collapse">
+      sdjkf skdjfh ksdfh kosdjfh kdshf kjdhf kdshf
+    </div>
+  </div>
+
+  <div class="field" *ngIf="message">
+    <div class="label">
+      Message:
+    </div>
+    <div class="input">
+      {{ message }}
+    </div>
+  </div>
+</div>
+
+
+
