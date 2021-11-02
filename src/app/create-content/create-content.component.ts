@@ -44,6 +44,7 @@ export class CreateContentComponent implements OnInit {
 
         // Get tags as string then split it into tags array.
         if (this.tags){
+          this.tags = this.tags.trim()
           this.content.tags = this.tags.split(' ');
           console.log(this.content.tags);
         }
@@ -63,7 +64,6 @@ export class CreateContentComponent implements OnInit {
         this.message = '';
         console.log(successResult)
         this.newContentEvent.emit(this.savedContent);
-
       } )
       .catch(failResult => { this.message = failResult});
 
