@@ -44,8 +44,9 @@ export class CreateContentComponent implements OnInit {
 
         // Get tags as string then split it into tags array.
         if (this.tags){
-          this.tags = this.tags.trim()
-          this.content.tags = this.tags.split(' ');
+          this.content.tags = this.tags.split(' ').filter( item => {
+              return item;
+          });
           console.log(this.content.tags);
         }
 
