@@ -10,7 +10,9 @@ export class ContentService {
 
   constructor() { }
 
-  getContentObs():Observable<Content[]>{
+  // In this case we didn't get contents synchronously,
+  // So, I named the function getContents, not getContentObs.
+  getContents():Observable<Content[]>{
     return of(CONTENT);
   }
 }

@@ -7,6 +7,7 @@ import { ContentListComponent } from './content-list/content-list.component';
 import { ContentTypePipe } from './content-type.pipe';
 import { HoverDirective } from './hover.directive';
 import { BorderDirective } from './border.directive';
+import { MessagesComponent } from './messages/messages.component';
 
 
 @NgModule({
@@ -17,6 +18,7 @@ import { BorderDirective } from './border.directive';
     ContentTypePipe,
     HoverDirective,
     BorderDirective,
+    MessagesComponent,
 
   ],
   imports: [

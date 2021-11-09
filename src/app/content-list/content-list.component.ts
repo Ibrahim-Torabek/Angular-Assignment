@@ -21,7 +21,11 @@ export class ContentListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.contentService.getContentObs().subscribe(contentList => this.contents = contentList);
+    this.getContents();
+  }
+
+  getContents(): void{
+    this.contentService.getContents().subscribe(contents => this.contents = contents);
   }
 
   searchTitle(title: string): void{
