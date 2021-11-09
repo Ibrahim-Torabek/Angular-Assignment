@@ -20,15 +20,7 @@ export class ContentListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.contents.push({
-      id: 100,
-      author: "Tom Chris",
-      title: "Good to know",
-      body:"This is the first element of contents",
-      imgUrl:"assets/first_person.jfif",
-      type:"Novel",
-      tags:["Horror","Comedy","Family"]
-    });
+    this.contents.push({id: 100, author: "Tom Chris", title: "Good to know", body:"This is the first element of contents", imgUrl:"assets/first_person.jfif", type:"Novel", tags:["Horror","Comedy","Family"]});
     this.contents.push({id: 101, author: "Happy Boy", title: "Really?", body:"This is the Second element of contents", tags:["Good", "Bad"]});
     this.contents.push({id: 102, author: "Hello World", title: "I am there", body:"This is the third element of contents"});
     this.contents.push({id: 103, author: "Bad Boy", title: "Sing a Song", body:"This is the fourth element of contents"});
