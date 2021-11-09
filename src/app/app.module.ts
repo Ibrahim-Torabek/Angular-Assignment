@@ -7,6 +7,8 @@ import { ContentListComponent } from './content-list/content-list.component';
 import { ContentTypePipe } from './content-type.pipe';
 import { HoverDirective } from './hover.directive';
 import { BorderDirective } from './border.directive';
+import { CreateContentComponent } from './create-content/create-content.component';
+import {FormsModule} from "@angular/forms";
 
 
 @NgModule({
@@ -17,10 +19,12 @@ import { BorderDirective } from './border.directive';
     ContentTypePipe,
     HoverDirective,
     BorderDirective,
+    CreateContentComponent,
 
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

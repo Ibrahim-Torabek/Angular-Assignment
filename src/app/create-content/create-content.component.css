@@ -1,0 +1,53 @@
+
+
+.field{
+  border-bottom: solid 1px;
+
+  display: table-row;
+}
+
+.label{
+  font-weight: bold;
+  padding: 10px;
+  width: auto;
+  border-right: dotted 2px;
+}
+
+.input, .label {
+  display: table-cell;
+  border-bottom: solid 2px;
+  padding-left: 3px;
+}
+
+
+
+.tags{
+  width: 40px;
+  margin-right: 3px;
+}
+
+textarea{
+  width: 90%;
+  height: 100px;
+  margin: auto;
+}
+
+
+.newContent{
+  border: solid 3px;
+  width: 80%;
+  margin: auto;
+  display: table;
+}
+
+.collapse{
+  display: table-column-group;
+  border-collapse: collapse;
+  border: crimson;
+  box-sizing: border-box
+}
+
+.required::after{
+  color: red;
+  content: "*";
+}
