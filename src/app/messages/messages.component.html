@@ -1,1 +1,9 @@
-<p>messages works!</p>
+
+<div *ngIf="messageService.messages.length" class="message">
+
+  <h2>Messages</h2>
+  <span class="closebtn" (click)="messageService.clear()">&times;</span>
+
+  <div *ngFor='let message of messageService.messages'> {{message}} </div>
+
+</div>
