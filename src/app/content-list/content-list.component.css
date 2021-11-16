@@ -43,6 +43,10 @@ tr:nth-child(even) {
   color: red;
 }
 
+.warning{
+  color: orangered;
+}
+
 .result-found .tg{
   background-color: lightblue;
 }
