@@ -8,6 +8,13 @@
   background-color: #f44336;
   color: white;
   width: 60%;
+
+  animation: fadeIn 700ms;
+}
+
+@keyframes fadeIn {
+  0% {opacity: 0;}
+  100% {opacity: 1;}
 }
 
 .closebtn {

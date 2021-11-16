@@ -1,6 +1,7 @@
 import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {Content} from "../helper-files/content-interface";
 import {ContentService} from "../services/content.service";
+import {MessageService} from "../services/message.service";
 
 @Component({
   selector: 'app-content-list',
@@ -14,8 +15,10 @@ export class ContentListComponent implements OnInit {
   searchResult = ""
   result: Content | undefined
 
+  selectedContent: Content | undefined;
 
-  constructor(private contentService: ContentService) {
+
+  constructor(private contentService: ContentService, public messageService: MessageService) {
     this.contents = [];
 
   }
@@ -25,7 +28,10 @@ export class ContentListComponent implements OnInit {
   }
 
   getContents(): void{
-    this.contentService.getContents().subscribe(contents => this.contents = contents);
+    this.contentService.getContents().subscribe(contents => {
+      this.contents = contents
+      //console.log(contents)
+    });
   }
 
   searchTitle(title: string): void{
@@ -33,6 +39,7 @@ export class ContentListComponent implements OnInit {
     // display error message if text field empty
     if(title == ""){
       this.searchResult = "<span class = 'error'>Input field cannot be empty</span>"
+
       return
     }
 
@@ -44,10 +51,31 @@ export class ContentListComponent implements OnInit {
     console.log(this.result)
 
     // if found display author and title
-    if(this.result !== undefined)
-      this.searchResult = `<span class = 'found'>Found!!! Author: ${this.result.author }, Title: ${this.result.title} </span>`;
+    if(this.result !== undefined) {
+      //this.searchResult = `<span class = 'found'>Found!!! Author: ${this.result.author}, Title: ${this.result.title} </span>`;
+      this.messageService.add(`Found!!! Author: ${this.result.author}, Title: ${this.result.title}`)
+    }
     else
-      this.searchResult = "<span class = 'not-found'>Not Found</span>"
+      //this.searchResult = "<span class = 'not-found'>Not Found</span>"
+      this.messageService.add(`Content NOT found`)
+  }
+
+
+  addContent(newContent: Content){
+
+
+    this.contentService.addContent(newContent).subscribe(content => {
+      console.log(this.contents);
+      this.contents.push(content);
+      this.contents = [...this.contents];
+    })
+  }
+
+
+  selectContent(content: Content){
+    this.selectedContent = content;
+    console.log("Clicked: ", content);
+    this.contents = [...this.contents];
   }
 
 

@@ -1,6 +1,9 @@
-<h2>Assignment #6</h2>
-<h3>Services: Content Service and Message Service</h3>
-<h4>Input Field:</h4>
+<h2>Assignment #7</h2>
+<h3>Services: Angular In Memory Data Service</h3>
+
+
+<app-create-component (newContentEvent)="addContent($event)" [selectedContent]="selectedContent"></app-create-component>
+<h4>Search a Content:</h4>
 <div class = "input-field">
   <span>Please enter title:</span>
   <input #title placeholder="can search by word">
@@ -22,6 +25,7 @@
   [isLast]= "isLast"
   [class.result-found] = "content == result"
   class="novel-list"
+  (selectedContent)="selectContent($event)"
 >
 </app-content-card>
 

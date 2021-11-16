@@ -1,5 +1,6 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Content} from "../helper-files/content-interface";
+import {MessageService} from "../services/message.service";
 
 
 
@@ -10,9 +11,10 @@ import {Content} from "../helper-files/content-interface";
 })
 export class ContentCardComponent implements OnInit {
 
-  @Input() content: Content
+  @Input() content: Content;
+  @Output() selectedContent = new EventEmitter<Content>();
 
-  constructor() {
+  constructor(public messageService: MessageService) {
     this.content = {author: "", body: "", id: 0, title: ""};
   }
 
@@ -22,6 +24,9 @@ export class ContentCardComponent implements OnInit {
 
   showId(){
     console.log(this.content.id);
+    this.messageService.add(`Content ID: ${ this.content.id }`)
+    this.selectedContent.emit(this.content);
+    this.content = this.content;
   }
 
 }
