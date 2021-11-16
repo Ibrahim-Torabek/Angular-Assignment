@@ -8,7 +8,7 @@
     <thead>
     <tr>
       <th class="tg-0pky" rowspan="4">
-        <img src="assets/person.svg" class="blank-image" *ngIf="!content.imgUrl" alt="Personal Image">
+        <img src="assets/person.svg" class="blank-image" *ngIf="!content.imgUrl" alt="Personal Image" (click)="showId()">
         <img alt="Personal Image"
              src="{{content.imgUrl}}"
              class="person-image"
