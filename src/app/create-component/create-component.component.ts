@@ -58,7 +58,7 @@ export class CreateComponentComponent implements OnInit {
           console.log(this.content.tags);
         }
 
-        success(this.content.title + " created successfully");
+        success(this.content.title + " created/updated successfully");
         this.newContentEvent.emit(this.content);
         console.log(this.content);
 

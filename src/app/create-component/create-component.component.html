@@ -54,7 +54,11 @@
       <label></label>
     </div>
     <div class="input">
-      <button (click)="createContent()"> Create </button>
+      <button (click)="createContent()" >
+        <span *ngIf="!selectedContent">Create</span>
+        <span *ngIf="selectedContent">Update</span>
+      </button>
+
 
     </div>
   </div>

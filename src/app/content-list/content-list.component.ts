@@ -61,14 +61,22 @@ export class ContentListComponent implements OnInit {
   }
 
 
-  addContent(newContent: Content){
+  addContent(newContent: Content) {
+
+    if (this.selectedContent) {
+        this.contentService.updateContent(newContent).subscribe(content => {
+          this.contents = [...this.contents];
+          this.selectedContent = undefined;
+        })
+    } else {
+      this.contentService.addContent(newContent).subscribe(content => {
+        console.log(this.contents);
+        this.contents.push(content);
+        this.contents = [...this.contents];
+      })
+    }
 
 
-    this.contentService.addContent(newContent).subscribe(content => {
-      console.log(this.contents);
-      this.contents.push(content);
-      this.contents = [...this.contents];
-    })
   }
 
 

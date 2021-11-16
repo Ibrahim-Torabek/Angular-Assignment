@@ -24,7 +24,7 @@ export class ContentCardComponent implements OnInit {
 
   showId(){
     console.log(this.content.id);
-    this.messageService.add(`Content ID: ${ this.content.id }`)
+    this.messageService.add(`Selected ${this.content.author} to Update`)
     this.selectedContent.emit(this.content);
     this.content = this.content;
   }
