@@ -14,6 +14,7 @@ export class ContentCardComponent implements OnInit {
   @Input() content: Content;
   @Output() selectedContent = new EventEmitter<Content>();
 
+
   constructor(public messageService: MessageService) {
     this.content = {author: "", body: "", id: 0, title: ""};
   }
@@ -23,8 +24,9 @@ export class ContentCardComponent implements OnInit {
   }
 
   showId(){
+    //this.selectedContent.emit(undefined);
     console.log(this.content.id);
-    this.messageService.add(`Selected ${this.content.author} to Update`)
+    //this.messageService.add(`Selected ${this.content.author} to Update`)
     this.selectedContent.emit(this.content);
     this.content = this.content;
   }

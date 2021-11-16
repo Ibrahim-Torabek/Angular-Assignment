@@ -7,6 +7,7 @@
   (newContentEvent)="addContent($event)" ></app-create-component>
 <app-create-component
   *ngIf="selectedContent"
+  (cancelUpdatingEvent)="cancelUpdating($event)"
   (newContentEvent)="addContent($event)"
   [selectedContent]="selectedContent">
 
@@ -34,6 +35,7 @@
   [class.result-found] = "content == result"
   class="novel-list"
   (selectedContent)="selectContent($event)"
+
 >
 </app-content-card>
 

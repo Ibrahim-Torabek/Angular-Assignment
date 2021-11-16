@@ -58,15 +58,14 @@
         <span *ngIf="!selectedContent">Create</span>
         <span *ngIf="selectedContent">Update</span>
       </button>
-
+      <button (click)="cancelUpdating()" *ngIf="selectedContent">Cancel</button>
+      <div>
+        You can update a content by clicking it's image
+      </div>
 
     </div>
   </div>
-  <div class="field">
-    <div class="collapse">
-      sdjkf skdjfh ksdfh kosdjfh kdshf kjdhf kdshf
-    </div>
-  </div>
+
 
   <div class="field" *ngIf="message">
     <div class="label">

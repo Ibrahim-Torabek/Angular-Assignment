@@ -12,6 +12,7 @@ export class CreateComponentComponent implements OnInit {
 
   @Input() selectedContent: Content | undefined;
   @Output() newContentEvent = new EventEmitter<Content>();
+  @Output() cancelUpdatingEvent = new EventEmitter<Content>();
 
   content: Content;
 
@@ -25,7 +26,7 @@ export class CreateComponentComponent implements OnInit {
       this.content = this.selectedContent;
       console.log("Selected :")
     } else {
-      this.content = {title: '', author: '', body: '', type: ''}
+      this.content = {title: '', author: '', body: ''}
     }
     this.tags = '';
   }
@@ -70,12 +71,16 @@ export class CreateComponentComponent implements OnInit {
     })
 
     newContentPromise.then(success => {
-      this.messageService.add(`${success}`);
-
+      //this.messageService.add(`${success}`);
+      console.log(success);
     })
       .catch(fail => {
         this.messageService.add(`${fail}`)
       })
+  }
+
+  cancelUpdating(){
+    this.cancelUpdatingEvent.emit(undefined);
   }
 
 }
