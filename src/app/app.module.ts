@@ -9,10 +9,16 @@ import { HoverDirective } from './hover.directive';
 import { BorderDirective } from './border.directive';
 import { MessagesComponent } from './messages/messages.component';
 import { CreateComponentComponent } from './create-component/create-component.component';
-import {HttpClientModule} from "@angular/common/http";
-import {HttpClientInMemoryWebApiModule} from "angular-in-memory-web-api";
-import {InMemoryDataService} from "./services/in-memory-data.service";
-import {FormsModule} from "@angular/forms";
+import { HttpClientModule } from "@angular/common/http";
+import { HttpClientInMemoryWebApiModule } from "angular-in-memory-web-api";
+import { InMemoryDataService } from "./services/in-memory-data.service";
+import { FormsModule } from "@angular/forms";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatToolbarModule} from "@angular/material/toolbar";
+import {MatIconModule} from '@angular/material/icon';
+import {MatButtonModule} from '@angular/material/button';
+import {MatTabsModule} from "@angular/material/tabs";
+import {MatGridListModule} from "@angular/material/grid-list";
 
 
 @NgModule({
@@ -34,7 +40,13 @@ import {FormsModule} from "@angular/forms";
       InMemoryDataService,
       {dataEncapsulation: false, delay: 1000}
     ),
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatButtonModule,
+    MatTabsModule,
+    MatGridListModule
   ],
   providers: [],
   bootstrap: [AppComponent]

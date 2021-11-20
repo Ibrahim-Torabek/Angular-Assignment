@@ -1,7 +1,84 @@
-<h2>Assignment #7</h2>
-<h3>Services: Angular In Memory Data Service</h3>
 
 
+<mat-tab-group mat-align-tabs="center">
+  <mat-tab label="All Contents">
+    <ng-template matTabContent>
+      <app-content-card
+        appBorder
+        *ngFor="let content of contents; last  as isLast; first as isFirst"
+        [content]="content"
+        [isFirst]= "isFirst"
+        [isLast]= "isLast"
+        [class.result-found] = "content == result"
+        class="novel-list"
+        (selectedContent)="selectContent($event)"
+
+      >
+      </app-content-card>
+    </ng-template>
+  </mat-tab>
+  <mat-tab label="Contents of Novel">
+    <ng-template matTabContent>
+      <app-content-card
+        appBorder
+        *ngFor="let content of (contents | contentType:'Novel'); last  as isLast; first as isFirst"
+        [content]="content"
+        [isFirst]= "isFirst"
+        [isLast]= "isLast"
+        [class.result-found] = "content == result"
+        class="novel-list"
+        (selectedContent)="selectContent($event)"
+      >
+      </app-content-card>
+    </ng-template>
+  </mat-tab>
+
+
+  <mat-tab label="Contents of Poem">
+    <ng-template matTabContent>
+      <app-content-card
+        appBorder
+        *ngFor="let content of (contents | contentType:'Poem'); last  as isLast; first as isFirst"
+        [content]="content"
+        [isLast] = "isLast"
+        [isFirst]="isFirst"
+        [class.result-found] = "content == result"
+        class="poem-list"
+        (selectedContent)="selectContent($event)"
+
+      >
+      </app-content-card>
+    </ng-template>
+  </mat-tab>
+
+
+  <mat-tab label="Other Contents">
+    <ng-template matTabContent>
+      <mat-grid-list cols="3" rowHeight="1:2">
+        <mat-grid-tile>
+          <app-content-card
+            appBorder
+            *ngFor="let content of (contents | contentType:''); last  as isLast; first as isFirst"
+            [content]="content"
+            [isFirst]="isFirst"
+            [isLast]="isLast"
+            [class.result-found] = "content == result"
+            class="other-list"
+            (selectedContent)="selectContent($event)"
+          >
+          </app-content-card>
+        </mat-grid-tile>
+      </mat-grid-list>
+    </ng-template>
+
+  </mat-tab>
+</mat-tab-group>
+
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
 <app-create-component
   *ngIf="!selectedContent"
   (newContentEvent)="addContent($event)" ></app-create-component>
@@ -24,43 +101,11 @@
 </div>
 <h4>Content List:</h4>
 
-<h2> List of <strong>Novels</strong></h2>
-<app-content-card
-  appBorder
-  *ngFor="let content of (contents | contentType:'Novel'); last  as isLast; first as isFirst"
-  [content]="content"
-  [isFirst]= "isFirst"
-  [isLast]= "isLast"
-  [class.result-found] = "content == result"
-  class="novel-list"
-  (selectedContent)="selectContent($event)"
->
-</app-content-card>
+
 
 <h2> List of <strong>Poems</strong></h2>
-<app-content-card
-  appBorder
-  *ngFor="let content of (contents | contentType:'Poem'); last  as isLast; first as isFirst"
-  [content]="content"
-  [isLast] = "isLast"
-  [isFirst]="isFirst"
-  [class.result-found] = "content == result"
-  class="poem-list"
-  (selectedContent)="selectContent($event)"
 
->
-</app-content-card>
 
 <h2> Other  List</h2>
-<app-content-card
-  appBorder
-  *ngFor="let content of (contents | contentType:''); last  as isLast; first as isFirst"
-  [content]="content"
-  [isFirst]="isFirst"
-  [isLast]="isLast"
-  [class.result-found] = "content == result"
-  class="other-list"
-  (selectedContent)="selectContent($event)"
->
-</app-content-card>
+
 
