@@ -1,7 +1,10 @@
-import {Component, OnInit, ViewEncapsulation} from '@angular/core';
+import {Component, OnInit, ViewEncapsulation, OnDestroy} from '@angular/core';
 import {Content} from "../helper-files/content-interface";
 import {ContentService} from "../services/content.service";
 import {MessageService} from "../services/message.service";
+import {BreakpointObserver, Breakpoints} from "@angular/cdk/layout";
+import {takeUntil} from "rxjs/operators";
+import {Subject} from "rxjs";
 
 @Component({
   selector: 'app-content-list',
@@ -17,14 +20,45 @@ export class ContentListComponent implements OnInit {
 
   selectedContent: Content | undefined;
 
+  // Change col number in a row by window size
+  cols = '3';
+  destroyed = new Subject<void>();
+  displayNameMap = new Map([
+    [Breakpoints.XSmall, '1'],
+    [Breakpoints.Small, '2'],
+    [Breakpoints.Medium, '3'],
+    [Breakpoints.Large, '4'],
+    [Breakpoints.XLarge, '5'],
+  ]);
 
-  constructor(private contentService: ContentService, public messageService: MessageService) {
+  constructor(private contentService: ContentService, public messageService: MessageService, breakpointObserver: BreakpointObserver) {
     this.contents = [];
 
+    breakpointObserver
+      .observe([
+        Breakpoints.XSmall,
+        Breakpoints.Small,
+        Breakpoints.Medium,
+        Breakpoints.Large,
+        Breakpoints.XLarge,
+      ])
+      .pipe(takeUntil(this.destroyed))
+      .subscribe(result => {
+        for (const query of Object.keys(result.breakpoints)) {
+          if (result.breakpoints[query]) {
+            this.cols = this.displayNameMap.get(query) ?? 'Unknown';
+          }
+        }
+      });
   }
 
   ngOnInit(): void {
     this.getContents();
+  }
+
+  ngOnDestroy() {
+    this.destroyed.next();
+    this.destroyed.complete();
   }
 
   getContents(): void{

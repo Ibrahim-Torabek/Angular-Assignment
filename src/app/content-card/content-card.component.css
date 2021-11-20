@@ -57,4 +57,22 @@ tr:nth-child(even) {
 /*:host.is-Last .tg{*/
 /*  border: 3px solid;*/
 /*}*/
+/*-------------Material Design ---------------*/
+
+
+.mat-card-avatar{
+  background-image: url("../../assets/person.svg");
+  background-size: cover;
+}
+
+
+
+
+.mat-card-actions{
+  display: flex;
+}
+
+.mat-card-actions .flex-spacer{
+  width: 100%;
+}
 

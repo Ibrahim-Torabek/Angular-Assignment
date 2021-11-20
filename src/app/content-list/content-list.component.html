@@ -1,64 +1,73 @@
 
-
 <mat-tab-group mat-align-tabs="center">
   <mat-tab label="All Contents">
     <ng-template matTabContent>
-      <app-content-card
-        appBorder
-        *ngFor="let content of contents; last  as isLast; first as isFirst"
-        [content]="content"
-        [isFirst]= "isFirst"
-        [isLast]= "isLast"
-        [class.result-found] = "content == result"
-        class="novel-list"
-        (selectedContent)="selectContent($event)"
+      <mat-grid-list cols="{{cols}}">
+        <mat-grid-tile *ngFor="let content of contents; last  as isLast; first as isFirst">
+          <app-content-card
+            appBorder
+            [content]="content"
+            [isFirst]= "isFirst"
+            [isLast]= "isLast"
+            [class.result-found] = "content == result"
+            class="novel-list"
+            (selectedContent)="selectContent($event)"
+          >
+          </app-content-card>
+        </mat-grid-tile>
+      </mat-grid-list>
 
-      >
-      </app-content-card>
     </ng-template>
   </mat-tab>
   <mat-tab label="Contents of Novel">
     <ng-template matTabContent>
-      <app-content-card
-        appBorder
-        *ngFor="let content of (contents | contentType:'Novel'); last  as isLast; first as isFirst"
-        [content]="content"
-        [isFirst]= "isFirst"
-        [isLast]= "isLast"
-        [class.result-found] = "content == result"
-        class="novel-list"
-        (selectedContent)="selectContent($event)"
-      >
-      </app-content-card>
+      <mat-grid-list cols="{{cols}}" >
+        <mat-grid-tile *ngFor="let content of (contents | contentType:'Novel'); last  as isLast; first as isFirst">
+          <app-content-card
+            appBorder
+
+            [content]="content"
+            [isFirst]= "isFirst"
+            [isLast]= "isLast"
+            [class.result-found] = "content == result"
+            class="novel-list"
+            (selectedContent)="selectContent($event)"
+          >
+          </app-content-card>
+        </mat-grid-tile>
+      </mat-grid-list>
+
     </ng-template>
   </mat-tab>
 
 
   <mat-tab label="Contents of Poem">
     <ng-template matTabContent>
-      <app-content-card
-        appBorder
-        *ngFor="let content of (contents | contentType:'Poem'); last  as isLast; first as isFirst"
-        [content]="content"
-        [isLast] = "isLast"
-        [isFirst]="isFirst"
-        [class.result-found] = "content == result"
-        class="poem-list"
-        (selectedContent)="selectContent($event)"
+      <mat-grid-list cols="{{cols}}">
+        <mat-grid-tile *ngFor="let content of (contents | contentType:'Poem'); last  as isLast; first as isFirst">
+          <app-content-card
+            appBorder
+            [content]="content"
+            [isLast] = "isLast"
+            [isFirst]="isFirst"
+            [class.result-found] = "content == result"
+            class="poem-list"
+            (selectedContent)="selectContent($event)"
+          >
+          </app-content-card>
+        </mat-grid-tile>
+      </mat-grid-list>
 
-      >
-      </app-content-card>
     </ng-template>
   </mat-tab>
 
 
   <mat-tab label="Other Contents">
     <ng-template matTabContent>
-      <mat-grid-list cols="3" rowHeight="1:2">
-        <mat-grid-tile>
+      <mat-grid-list cols="{{cols}}" >
+        <mat-grid-tile *ngFor="let content of (contents | contentType:''); last  as isLast; first as isFirst">
           <app-content-card
             appBorder
-            *ngFor="let content of (contents | contentType:''); last  as isLast; first as isFirst"
             [content]="content"
             [isFirst]="isFirst"
             [isLast]="isLast"

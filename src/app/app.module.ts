@@ -19,6 +19,9 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import {MatTabsModule} from "@angular/material/tabs";
 import {MatGridListModule} from "@angular/material/grid-list";
+import {MatCardModule} from "@angular/material/card";
+import {LayoutModule} from '@angular/cdk/layout';
+import {MatSidenavModule} from "@angular/material/sidenav";
 
 
 @NgModule({
@@ -31,7 +34,6 @@ import {MatGridListModule} from "@angular/material/grid-list";
     BorderDirective,
     MessagesComponent,
     CreateComponentComponent,
-
   ],
   imports: [
     BrowserModule,
@@ -46,7 +48,10 @@ import {MatGridListModule} from "@angular/material/grid-list";
     MatIconModule,
     MatButtonModule,
     MatTabsModule,
-    MatGridListModule
+    MatGridListModule,
+    MatCardModule,
+    LayoutModule,
+    MatSidenavModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

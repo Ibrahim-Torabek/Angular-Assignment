@@ -1,58 +1,32 @@
+<mat-card>
+  <mat-card-header>
+    <div mat-card-avatar></div>
+    <mat-card-title>{{ content.title }}</mat-card-title>
+    <mat-card-subtitle>{{ content.author }}</mat-card-subtitle>
+  </mat-card-header>
+  <img mat-card-lg-image src="assets/person.svg" class="blank-image" *ngIf="!content.imgUrl" alt="Personal Image" (click)="showId()">
+  <img mat-card-lg-image
+    alt="Personal Image"
+       src="{{content.imgUrl}}"
+       class="person-image"
+       id="person1-image"
+       *ngIf="content.imgUrl"
+       (click)="showId()"
+  >
+  <mat-card-content>
+    <p>
+      {{ content.body}}
+    </p>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-button color="primary">Edit</button>
+    <div class="flex-spacer"></div>
+    <button mat-icon-button>
+      <mat-icon>share</mat-icon>
+    </button>
+  </mat-card-actions>
+</mat-card>
 
-  <table class="tg">
-    <colgroup>
-      <col style="width: 132px">
-      <col style="width: 100px">
-      <col style="width: 253px">
-    </colgroup>
-    <thead>
-    <tr>
-      <th class="tg-0pky" rowspan="4">
-        <img src="assets/person.svg" class="blank-image" *ngIf="!content.imgUrl" alt="Personal Image" (click)="showId()">
-        <img alt="Personal Image"
-             src="{{content.imgUrl}}"
-             class="person-image"
-             id="person1-image"
-             *ngIf="content.imgUrl"
-             (click)="showId()"
-        >
-      </th>
-      <th class="tg-0pky">Name</th>
-      <th class="tg-0pky">{{ content.author }}</th>
-    </tr>
-    <tr>
-      <th class="tg-0pky">Title</th>
-      <th class="tg-0pky">
-        <span appHover>
-          {{ content.title | titlecase }}
-        </span>
-      </th>
-    </tr>
-    <tr *ngIf="content.type">
-      <th class="tg-0pky">Type</th>
-      <th class="tg-0pky">{{ content.type }}</th>
-    </tr>
-    <tr *ngIf="content.tags">
-      <th class="tg-0pky">Tags</th>
-      <th class="tg-0pky">
-        <span *ngFor="let tag of content.tags; last as isLast">
-          <span appHover [isTag]="tag">
-            {{ tag | uppercase}}
-          </span>
-          <span *ngIf="!isLast"> | </span>
-        </span>
-      </th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr>
-      <td class="tg-0lax" colspan="3">
-        Body:<br>
-        {{ content.body }}
-      </td>
-    </tr>
-    </tbody>
-  </table>
   <br>
 
 
