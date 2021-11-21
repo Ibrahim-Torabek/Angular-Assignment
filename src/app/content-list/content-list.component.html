@@ -1,10 +1,11 @@
-<div class="content-header">
-  <button  mat-button color="primary" class="create-content" (click)="openCreateDialog()">
+<div flex class="content-header">
+  <button  mat-raised-button color="accent" class="create-content" (click)="openCreateDialog()">
     Create a New Content
   </button>
-  <span class="spacer"> | </span>
-  <span>Search:</span>
-  <mat-form-field appearance="legacy">
+
+  <span class="spacer"></span>
+
+  <mat-form-field appearance="legacy" >
     <mat-label>Keywords</mat-label>
     <input matInput #title placeholder="can search by word">
 
@@ -13,14 +14,12 @@
     <mat-icon>search</mat-icon>
   </button>
 
-
-
 </div>
 <mat-tab-group mat-align-tabs="center">
   <mat-tab label="All Contents">
-    <ng-template matTabContent>
-      <mat-grid-list cols="{{cols}}" rowHeight="1:1.2">
-        <mat-grid-tile *ngFor="let content of contents; last  as isLast; first as isFirst">
+    <ng-template matTabContent class="centered">
+      <mat-grid-list cols="{{cols}}" rowHeight="1:1.2"  >
+        <mat-grid-tile *ngFor="let content of contents; last  as isLast; first as isFirst" >
           <app-content-card
             appBorder
             [content]="content"

@@ -1,14 +1,7 @@
-.jasmine-alert{
-  color: red;
-  background-color: #1976d2;
-}
-
-
 table {
   font-family: arial, sans-serif;
   border-collapse: collapse;
   width: 100%;
-
 }
 
 td, th {
@@ -17,11 +10,9 @@ td, th {
   padding: 8px;
 }
 
-
 .break-up-my-stuff:last-child .tg{
   border: 3px solid;
 }
-
 
 
 tr:nth-child(even) {
@@ -40,50 +31,36 @@ tr:nth-child(even) {
   width: 100%;
 }
 
-
-
-:host.poem-list .tg{
-  border: #1976d2 solid 2px ;
-}
-
-:host.novel-list .tg{
-  border: orangered solid 2px ;
-}
-
-:host.other-list .tg{
-  border: yellowgreen solid 2px ;
-}
-
-:host.result-found .mat-card{
+.found{
+  color: #1976d2;
   border: solid red 2px;
 }
 
-/*:host.is-Last .tg{*/
-/*  border: 3px solid;*/
-/*}*/
-/*-------------Material Design ---------------*/
-
-
-.mat-card-avatar{
-  background-image: url("../../assets/person.svg");
-  background-size: cover;
+.not-found{
+  color: darkred;
 }
 
-.mat-card{
-  width: 250px;
-  margin-bottom: 20px;
-  margin-top: 10px;
+.error{
+  color: red;
 }
 
-
-.mat-card-actions{
-  display: flex;
+.result-found .tg{
+  background-color: lightblue;
 }
 
-.mat-card-actions .flex-spacer{
+.content-header{
   width: 100%;
 }
 
-.mat-card-content{
-  height: 50px;
+.content-header{
+  display: flex;
+  justify-content: space-between;
+}
+.spacer{
+  flex: 1 1 auto;
+}
+
+.create-content{
+  margin: auto;
+  margin-left: 20px;
 }

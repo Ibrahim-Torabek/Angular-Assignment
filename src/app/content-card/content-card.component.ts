@@ -3,20 +3,21 @@ import {Content} from "../helper-files/content-interface";
 import {MessageService} from "../services/message.service";
 import {CreateComponentComponent} from "../create-component/create-component.component";
 import {MatDialog} from "@angular/material/dialog";
+import {MatSnackBar} from "@angular/material/snack-bar";
 
 
 
 @Component({
   selector: 'app-content-card',
   templateUrl: './content-card.component.html',
-  styleUrls: ['./content-card.component.css']
+  styleUrls: ['./content-card.component.scss']
 })
 export class ContentCardComponent implements OnInit {
 
   @Input() content: Content;
   @Output() selectedContent = new EventEmitter<Content>();
 
-  constructor(public messageService: MessageService, public dialog: MatDialog) {
+  constructor(public messageService: MessageService, public dialog: MatDialog, private snackBar: MatSnackBar) {
     this.content = {author: "", body: "", id: 0, title: ""};
   }
 
@@ -36,7 +37,8 @@ export class ContentCardComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       let content = result as Content;
-      console.log(`Update Result: ${content.author}`)
+      if (result != '')
+        this.snackBar.open(`${content.title} updated successfully`, 'close');
     })
   }
 }

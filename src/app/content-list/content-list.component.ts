@@ -13,7 +13,7 @@ import {MatSnackBar} from "@angular/material/snack-bar";
 @Component({
   selector: 'app-content-list',
   templateUrl: './content-list.component.html',
-  styleUrls: ['./content-list.component.css'],
+  styleUrls: ['./content-list.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
 export class ContentListComponent implements OnInit {
@@ -97,11 +97,13 @@ export class ContentListComponent implements OnInit {
     // if found display author and title
     if(this.result !== undefined) {
       //this.searchResult = `<span class = 'found'>Found!!! Author: ${this.result.author}, Title: ${this.result.title} </span>`;
-      this.messageService.add(`Found!!! Author: ${this.result.author}, Title: ${this.result.title}`)
+      //this.messageService.add(`Found!!! Author: ${this.result.author}, Title: ${this.result.title}`)
+      this._snackBar.open(`Content found!!! Author: ${this.result.author}`, 'Close');
     }
     else
       //this.searchResult = "<span class = 'not-found'>Not Found</span>"
-      this.messageService.add(`Content NOT found`);
+      //this.messageService.add(`Content NOT found`);
+      this._snackBar.open(`Content NOT found`, 'Close');
 
   }
 
@@ -147,7 +149,7 @@ export class ContentListComponent implements OnInit {
         console.log(this.contents);
         this.contents.push(content);
         this.contents = [...this.contents];
-        this._snackBar.open(`Content Created`,'Close');
+        this._snackBar.open(`${content.title} created successfully`,'Close');
       })
     })
   }
