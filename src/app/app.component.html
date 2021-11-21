@@ -1,24 +1,37 @@
+<mat-drawer-container class="container" autosize>
+  <mat-drawer #drawer class="sidenav">
+    <button color="primary" mat-button> Contents </button>
+  </mat-drawer>
+  <div class="sidenav-content">
+    <mat-toolbar color="primary">
+      <button
+        mat-icon-button
+        (click)="drawer.toggle()"
+      >
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span>{{ title }}</span>
+      <span class="spacer"></span>
+      <span>Assignment #8: Material Design</span>
+      <!--  <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">-->
+      <!--    <mat-icon>favorite</mat-icon>-->
+      <!--  </button>-->
+      <!--  <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">-->
+      <!--    <mat-icon>share</mat-icon>-->
+      <!--  </button>-->
+    </mat-toolbar>
+  </div>
 
 
 
-<mat-toolbar color="primary">
-  <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
-    <mat-icon>menu</mat-icon>
-  </button>
-  <span>{{ title }}</span>
-  <span class="example-spacer"></span>
-  <span>Assignment #8: Material Design</span>
-<!--  <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">-->
-<!--    <mat-icon>favorite</mat-icon>-->
-<!--  </button>-->
-<!--  <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">-->
-<!--    <mat-icon>share</mat-icon>-->
-<!--  </button>-->
-</mat-toolbar>
 
 
-<app-content-list ></app-content-list>
-<app-messages></app-messages>
+  <app-content-list ></app-content-list>
+  <app-messages></app-messages>
+</mat-drawer-container>
+
+
+
 
 
 

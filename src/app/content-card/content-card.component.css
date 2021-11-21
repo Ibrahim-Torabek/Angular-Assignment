@@ -54,6 +54,10 @@ tr:nth-child(even) {
   border: yellowgreen solid 2px ;
 }
 
+:host.result-found .mat-card{
+  border: solid red 2px;
+}
+
 /*:host.is-Last .tg{*/
 /*  border: 3px solid;*/
 /*}*/
@@ -65,7 +69,11 @@ tr:nth-child(even) {
   background-size: cover;
 }
 
-
+.mat-card{
+  width: 250px;
+  margin-bottom: 20px;
+  margin-top: 10px;
+}
 
 
 .mat-card-actions{
@@ -76,3 +84,6 @@ tr:nth-child(even) {
   width: 100%;
 }
 
+.mat-card-content{
+  height: 50px;
+}

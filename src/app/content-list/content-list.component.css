@@ -33,6 +33,7 @@ tr:nth-child(even) {
 
 .found{
   color: #1976d2;
+  border: solid red 2px;
 }
 
 .not-found{
@@ -53,3 +54,13 @@ tr:nth-child(even) {
   color: cornflowerblue;
 }
 
+.content-header{
+  width: 100%;
+}
+
+
+
+.spacer {
+  flex: 1 1 auto;
+  color: #1976d2;
+}

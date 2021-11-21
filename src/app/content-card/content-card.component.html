@@ -15,11 +15,19 @@
   >
   <mat-card-content>
     <p>
-      {{ content.body}}
+      <span class="mat-body">  {{ content.body}} </span>
+    </p>
+    <p>
+      <span class="mat-body-strong" *ngIf="content.tags">
+        <span *ngFor="let tag of content.tags; last as isLast">
+          <span appHover>{{tag}}</span>
+          <span *ngIf="!isLast"> | </span>
+        </span>
+      </span>
     </p>
   </mat-card-content>
   <mat-card-actions>
-    <button mat-button color="primary">Edit</button>
+    <button mat-button color="primary" (click)="openCreateDialog()">Edit</button>
     <div class="flex-spacer"></div>
     <button mat-icon-button>
       <mat-icon>share</mat-icon>

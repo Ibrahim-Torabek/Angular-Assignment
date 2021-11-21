@@ -12,7 +12,7 @@ import { CreateComponentComponent } from './create-component/create-component.co
 import { HttpClientModule } from "@angular/common/http";
 import { HttpClientInMemoryWebApiModule } from "angular-in-memory-web-api";
 import { InMemoryDataService } from "./services/in-memory-data.service";
-import { FormsModule } from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatToolbarModule} from "@angular/material/toolbar";
 import {MatIconModule} from '@angular/material/icon';
@@ -22,7 +22,10 @@ import {MatGridListModule} from "@angular/material/grid-list";
 import {MatCardModule} from "@angular/material/card";
 import {LayoutModule} from '@angular/cdk/layout';
 import {MatSidenavModule} from "@angular/material/sidenav";
-
+import {MatListModule} from "@angular/material/list";
+import {MatDialogModule} from "@angular/material/dialog";
+import {MatInputModule} from '@angular/material/input';
+import { MatSnackBarModule} from "@angular/material/snack-bar";
 
 @NgModule({
   declarations: [
@@ -52,6 +55,11 @@ import {MatSidenavModule} from "@angular/material/sidenav";
     MatCardModule,
     LayoutModule,
     MatSidenavModule,
+    MatListModule,
+    MatDialogModule,
+    MatInputModule,
+    ReactiveFormsModule,
+    MatSnackBarModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

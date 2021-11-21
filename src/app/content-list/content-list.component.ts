@@ -5,6 +5,10 @@ import {MessageService} from "../services/message.service";
 import {BreakpointObserver, Breakpoints} from "@angular/cdk/layout";
 import {takeUntil} from "rxjs/operators";
 import {Subject} from "rxjs";
+import {CreateComponentComponent} from "../create-component/create-component.component";
+import {MatDialog} from "@angular/material/dialog";
+import {FormControl, Validators} from '@angular/forms';
+import {MatSnackBar} from "@angular/material/snack-bar";
 
 @Component({
   selector: 'app-content-list',
@@ -31,7 +35,13 @@ export class ContentListComponent implements OnInit {
     [Breakpoints.XLarge, '5'],
   ]);
 
-  constructor(private contentService: ContentService, public messageService: MessageService, breakpointObserver: BreakpointObserver) {
+  constructor(
+    private contentService: ContentService,
+    public messageService: MessageService,
+    public dialog: MatDialog,
+    breakpointObserver: BreakpointObserver,
+    private _snackBar: MatSnackBar
+  ) {
     this.contents = [];
 
     breakpointObserver
@@ -91,7 +101,8 @@ export class ContentListComponent implements OnInit {
     }
     else
       //this.searchResult = "<span class = 'not-found'>Not Found</span>"
-      this.messageService.add(`Content NOT found`)
+      this.messageService.add(`Content NOT found`);
+
   }
 
 
@@ -121,4 +132,23 @@ export class ContentListComponent implements OnInit {
   }
 
 
+  openCreateDialog(){
+    const dialogRef = this.dialog.open(CreateComponentComponent)
+
+    dialogRef.afterClosed().subscribe(result => {
+      // If clicked Cancel button, return
+      if (result == '') {
+        console.log("Empty result")
+        return
+      }
+      // If clicked Create button
+      let content = result as Content;
+      this.contentService.addContent(content).subscribe(content => {
+        console.log(this.contents);
+        this.contents.push(content);
+        this.contents = [...this.contents];
+        this._snackBar.open(`Content Created`,'Close');
+      })
+    })
+  }
 }

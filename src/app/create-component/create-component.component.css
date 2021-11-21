@@ -1,9 +1,10 @@
-
-
+.create-form{
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
 .field{
-  border-bottom: solid 1px;
-
-  display: table-row;
+  width: 100%;
 }
 
 .label{

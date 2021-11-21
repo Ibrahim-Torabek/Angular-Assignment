@@ -1,8 +1,25 @@
+<div class="content-header">
+  <button  mat-button color="primary" class="create-content" (click)="openCreateDialog()">
+    Create a New Content
+  </button>
+  <span class="spacer"> | </span>
+  <span>Search:</span>
+  <mat-form-field appearance="legacy">
+    <mat-label>Keywords</mat-label>
+    <input matInput #title placeholder="can search by word">
 
+  </mat-form-field>
+  <button mat-icon-button (click)="searchTitle(title.value)">
+    <mat-icon>search</mat-icon>
+  </button>
+
+
+
+</div>
 <mat-tab-group mat-align-tabs="center">
   <mat-tab label="All Contents">
     <ng-template matTabContent>
-      <mat-grid-list cols="{{cols}}">
+      <mat-grid-list cols="{{cols}}" rowHeight="1:1.2">
         <mat-grid-tile *ngFor="let content of contents; last  as isLast; first as isFirst">
           <app-content-card
             appBorder
@@ -11,7 +28,7 @@
             [isLast]= "isLast"
             [class.result-found] = "content == result"
             class="novel-list"
-            (selectedContent)="selectContent($event)"
+
           >
           </app-content-card>
         </mat-grid-tile>
@@ -21,7 +38,7 @@
   </mat-tab>
   <mat-tab label="Contents of Novel">
     <ng-template matTabContent>
-      <mat-grid-list cols="{{cols}}" >
+      <mat-grid-list cols="{{cols}}"  rowHeight="1:1.2">
         <mat-grid-tile *ngFor="let content of (contents | contentType:'Novel'); last  as isLast; first as isFirst">
           <app-content-card
             appBorder
@@ -31,7 +48,7 @@
             [isLast]= "isLast"
             [class.result-found] = "content == result"
             class="novel-list"
-            (selectedContent)="selectContent($event)"
+
           >
           </app-content-card>
         </mat-grid-tile>
@@ -43,7 +60,7 @@
 
   <mat-tab label="Contents of Poem">
     <ng-template matTabContent>
-      <mat-grid-list cols="{{cols}}">
+      <mat-grid-list cols="{{cols}}"  rowHeight="1:1.2">
         <mat-grid-tile *ngFor="let content of (contents | contentType:'Poem'); last  as isLast; first as isFirst">
           <app-content-card
             appBorder
@@ -52,7 +69,7 @@
             [isFirst]="isFirst"
             [class.result-found] = "content == result"
             class="poem-list"
-            (selectedContent)="selectContent($event)"
+
           >
           </app-content-card>
         </mat-grid-tile>
@@ -64,7 +81,7 @@
 
   <mat-tab label="Other Contents">
     <ng-template matTabContent>
-      <mat-grid-list cols="{{cols}}" >
+      <mat-grid-list cols="{{cols}}"  rowHeight="1:1.2">
         <mat-grid-tile *ngFor="let content of (contents | contentType:''); last  as isLast; first as isFirst">
           <app-content-card
             appBorder
@@ -73,7 +90,7 @@
             [isLast]="isLast"
             [class.result-found] = "content == result"
             class="other-list"
-            (selectedContent)="selectContent($event)"
+
           >
           </app-content-card>
         </mat-grid-tile>
@@ -88,33 +105,14 @@
 <br/>
 <br/>
 <br/>
-<app-create-component
-  *ngIf="!selectedContent"
-  (newContentEvent)="addContent($event)" ></app-create-component>
-<app-create-component
-  *ngIf="selectedContent"
-  (newContentEvent)="addContent($event)"
-  [selectedContent]="selectedContent">
+<!--<app-create-component-->
+<!--  *ngIf="!selectedContent"-->
+<!--  (newContentEvent)="addContent($event)" ></app-create-component>-->
+<!--<app-create-component-->
+<!--  *ngIf="selectedContent"-->
+<!--  (newContentEvent)="addContent($event)"-->
+<!--  [selectedContent]="selectedContent">-->
+<!--</app-create-component>-->
 
-</app-create-component>
-<h4>Search a Content:</h4>
-<div class = "input-field">
-  <span>Please enter title:</span>
-  <input #title placeholder="can search by word">
-  <button (click)="searchTitle(title.value)">Search</button>
-</div>
-<div>
-  Search Result:
-  <span *ngIf="searchResult" [innerHTML]="searchResult">
-  </span>
-</div>
-<h4>Content List:</h4>
-
-
-
-<h2> List of <strong>Poems</strong></h2>
-
-
-<h2> Other  List</h2>
 
 

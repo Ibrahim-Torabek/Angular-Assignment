@@ -1,6 +1,8 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Inject, inject, Input, OnInit, Output} from '@angular/core';
 import {Content} from "../helper-files/content-interface";
 import {MessageService} from "../services/message.service";
+import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
+import {FormControl, Validators} from "@angular/forms";
 
 
 @Component({
@@ -13,33 +15,49 @@ export class CreateComponentComponent implements OnInit {
   @Input() selectedContent: Content | undefined;
   @Output() newContentEvent = new EventEmitter<Content>();
 
-  content: Content;
+  //content: Content;
+
+  required = new FormControl('',[Validators.required]);
+  required1 = new FormControl('',[Validators.required]);
+  required2 = new FormControl('',[Validators.required]);
+  required3 = new FormControl('',[Validators.required]);
 
 
   tags: string;
   message = "";
 
 
-  constructor(private messageService: MessageService) {
-    if (this.selectedContent){
-      this.content = this.selectedContent;
-      console.log("Selected :")
+  constructor(
+    private messageService: MessageService,
+    public matDialogRef: MatDialogRef<CreateComponentComponent>,
+    @Inject(MAT_DIALOG_DATA) public content: Content
+  ) {
+    if (content != null){
+      console.log(`Content: ${content.title}`);
     } else {
       this.content = {title: '', author: '', body: '', type: ''}
     }
-    this.tags = '';
+
+    // if (this.selectedContent){
+    //   this.content = this.selectedContent;
+    //   console.log("Selected :")
+    // } else {
+    //   this.content = {title: '', author: '', body: '', type: ''}
+    // }
+     this.tags = '';
   }
 
   ngOnInit(): void {
-    if (this.selectedContent){
-      this.content = this.selectedContent;
-      console.log("Selected ....")
-    } else {
-      this.content = {title: '', author: '', body: '', type: ''}
-    }
+    // if (this.selectedContent){
+    //   this.content = this.selectedContent;
+    //   console.log("Selected ....")
+    // } else {
+    //   this.content = {title: '', author: '', body: '', type: ''}
+    // }
   }
 
   createContent(){
+
     let newContentPromise = new Promise((success, fail) => {
       if(!this.content.author){
         fail("Author field must NOT be empty");
