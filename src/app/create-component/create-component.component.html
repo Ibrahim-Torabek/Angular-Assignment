@@ -1,5 +1,5 @@
 
-<h2 mat-dialog-title>Create a new content</h2>
+<h2 mat-dialog-title>{{title}}</h2>
 
 <mat-dialog-content>
 
@@ -10,14 +10,15 @@
         matInput [(ngModel)]="content.author"
         placeholder="Author"
         required
-        [formControl]="required1"
+        [formControl]="AuthorRequire"
 
       >
-      <mat-error *ngIf="required.invalid">Field Cannot be EMPTY</mat-error>
+      <mat-error *ngIf="AuthorRequire.invalid">Field Cannot be EMPTY</mat-error>
     </mat-form-field>
     <mat-form-field class="field" appearance="fill">
       <mat-label>Title</mat-label>
-      <input matInput [(ngModel)]="content.title" placeholder="Title" [formControl]="required2" required>
+      <input matInput [(ngModel)]="content.title" placeholder="Title" [formControl]="titleRequired" required>
+      <mat-error *ngIf="titleRequired.invalid">Field Cannot be EMPTY</mat-error>
     </mat-form-field>
     <mat-form-field class="field" appearance="fill">
       <mat-label>Novel or Poem</mat-label>
@@ -29,7 +30,8 @@
     </mat-form-field>
     <mat-form-field class="field" appearance="fill">
       <mat-label>Body</mat-label>
-      <textarea matInput [(ngModel)]="content.body" [formControl]="required3" required></textarea>
+      <textarea matInput [(ngModel)]="content.body" [formControl]="bodyRequired" required></textarea>
+      <mat-error *ngIf="bodyRequired.invalid">Field Cannot be EMPTY</mat-error>
     </mat-form-field>
     <mat-form-field class="field" appearance="fill">
       <mat-label>Image URL</mat-label>
@@ -43,7 +45,7 @@
 <mat-dialog-actions align="end">
   <button mat-button mat-dialog-close>Cancel</button>
   <button mat-button [mat-dialog-close]="content"
-          *ngIf="required1.valid && required2.valid && required3.valid">Save</button>
+          *ngIf="AuthorRequire.valid && titleRequired.valid && bodyRequired.valid">Save</button>
   <button mat-button [mat-dialog-close]="content"
-          *ngIf="required1.invalid || required2.invalid || required3.invalid" disabled>Save</button>
+          *ngIf="AuthorRequire.invalid || titleRequired.invalid || bodyRequired.invalid" disabled>Save</button>
 </mat-dialog-actions>

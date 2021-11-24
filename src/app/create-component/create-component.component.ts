@@ -17,14 +17,13 @@ export class CreateComponentComponent implements OnInit {
 
   //content: Content;
 
-  required = new FormControl('',[Validators.required]);
-  required1 = new FormControl('',[Validators.required]);
-  required2 = new FormControl('',[Validators.required]);
-  required3 = new FormControl('',[Validators.required]);
+  AuthorRequire = new FormControl('',[Validators.required]);
+  titleRequired = new FormControl('',[Validators.required]);
+  bodyRequired = new FormControl('',[Validators.required]);
 
 
   tags: string;
-  message = "";
+  title = "Create a new content";
 
 
   constructor(
@@ -34,6 +33,7 @@ export class CreateComponentComponent implements OnInit {
   ) {
     if (content != null){
       console.log(`Content: ${content.title}`);
+      this.title = `Editing '${content.title}'`;
     } else {
       this.content = {title: '', author: '', body: '', type: ''}
     }
