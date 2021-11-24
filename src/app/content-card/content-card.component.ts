@@ -38,7 +38,7 @@ export class ContentCardComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       let content = result as Content;
       if (result != '')
-        this.snackBar.open(`${content.title} updated successfully`, 'close');
+        this.snackBar.open(`${content.title} updated successfully`, 'Close');
     })
   }
 }
