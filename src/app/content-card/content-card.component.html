@@ -1,4 +1,4 @@
-<mat-card>
+<mat-card >
   <mat-card-header>
     <div mat-card-avatar>
       <img src="/assets/person.svg">
@@ -6,16 +6,16 @@
     <mat-card-title>{{ content.title }}</mat-card-title>
     <mat-card-subtitle>{{ content.author }}</mat-card-subtitle>
   </mat-card-header>
-  <img mat-card-lg-image src="assets/person.svg" class="blank-image" *ngIf="!content.imgUrl" alt="Personal Image" (click)="showId()">
+  <img mat-card-lg-image src="assets/person.svg" class="blank-image" *ngIf="!content.imgUrl" alt="Personal Image" routerLink="/content/{{content.id}}">
   <img mat-card-lg-image
     alt="Personal Image"
        src="{{content.imgUrl}}"
        class="person-image"
        id="person1-image"
        *ngIf="content.imgUrl"
-       (click)="showId()"
+       routerLink="/content/{{content.id}}"
   >
-  <mat-card-content>
+  <mat-card-content routerLink="/content/{{content.id}}">
     <p>
       <span class="mat-body">  {{ content.body}} </span>
     </p>

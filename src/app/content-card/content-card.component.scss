@@ -83,8 +83,14 @@ tr:nth-child(even) {
 .mat-card-content{
   height: 80px;
   overflow: hidden;
+  cursor: pointer;
 }
 
 .mat-card-content .mat-body{
   text-overflow: ellipsis;
+}
+
+.mat-card:hover{
+  right: .3em;
+  bottom: .3em;
 }
