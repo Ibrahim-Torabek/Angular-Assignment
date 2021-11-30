@@ -1,6 +1,7 @@
 <mat-drawer-container class="container" autosize>
-  <mat-drawer #drawer class="sidenav">
-    <button color="primary" mat-button> Contents </button>
+  <mat-drawer #drawer class="sidenav" >
+    <button color="primary" mat-button routerLink="" (click)="drawer.toggle()"> Home </button>
+    <button color="primary" mat-button routerLink="contents" (click)="drawer.toggle()"> Contents </button>
   </mat-drawer>
   <div class="sidenav-content">
     <mat-toolbar color="primary">
@@ -12,7 +13,7 @@
       </button>
       <span>{{ title }}</span>
       <span class="spacer"></span>
-      <span>Assignment #8: Material Design</span>
+      <span>Assignment #9: Routing</span>
       <!--  <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">-->
       <!--    <mat-icon>favorite</mat-icon>-->
       <!--  </button>-->
@@ -21,15 +22,19 @@
       <!--  </button>-->
     </mat-toolbar>
   </div>
-
-
-
-
-
-  <app-content-list ></app-content-list>
-  <app-messages></app-messages>
+  <router-outlet></router-outlet>
+<!--  <app-content-list ></app-content-list>-->
+<!--  <app-messages></app-messages>-->
 </mat-drawer-container>
 
+<!--<div>-->
+<!--  <ul>-->
+<!--    <li> <a routerLink="/contents">Content List</a> </li>-->
+<!--    <li> <a routerLink = "content/100"> Content details : 100</a></li>-->
+<!--    <li> Not Found </li>-->
+<!--  </ul>-->
+
+<!--</div>-->
 
 
 

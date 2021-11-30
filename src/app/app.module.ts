@@ -26,6 +26,10 @@ import {MatListModule} from "@angular/material/list";
 import {MatDialogModule} from "@angular/material/dialog";
 import {MatInputModule} from '@angular/material/input';
 import { MatSnackBarModule} from "@angular/material/snack-bar";
+import { ContentDetailComponent } from './content-detail/content-detail.component';
+import { NotFoundComponent } from './not-found/not-found.component';
+import {RouterModule, Routes} from "@angular/router";
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +41,9 @@ import { MatSnackBarModule} from "@angular/material/snack-bar";
     BorderDirective,
     MessagesComponent,
     CreateComponentComponent,
+    ContentDetailComponent,
+    NotFoundComponent,
+    DashboardComponent,
   ],
   imports: [
     BrowserModule,
@@ -60,6 +67,24 @@ import { MatSnackBarModule} from "@angular/material/snack-bar";
     MatInputModule,
     ReactiveFormsModule,
     MatSnackBarModule,
+    RouterModule.forRoot([
+      {
+        path: 'content/:id',
+        component: ContentDetailComponent
+      },
+      {
+        path: 'contents',
+        component: ContentListComponent
+      },
+      {
+        path: '',
+        component: DashboardComponent
+      },
+      {
+        path: '**',
+        component: NotFoundComponent
+      }
+    ])
   ],
   providers: [],
   entryComponents: [CreateComponentComponent],
