@@ -1,8 +1,24 @@
 <mat-drawer-container class="container" autosize>
   <mat-drawer #drawer class="sidenav" >
-    <button color="primary" mat-button routerLink="" (click)="drawer.toggle()"> Home </button>
+    <button
+      color="primary"
+      mat-button
+      routerLink=""
+      routerLinkActive="active"
+      (click)="drawer.toggle()"
+    >
+      Home
+    </button>
     <mat-divider></mat-divider>
-    <button color="primary" mat-button routerLink="contents" (click)="drawer.toggle()"> Content List </button>
+    <button
+      color="primary"
+      mat-button
+      routerLink="contents"
+      routerLinkActive="active"
+      (click)="drawer.toggle()"
+    >
+      Content List
+    </button>
   </mat-drawer>
   <div class="sidenav-content">
     <mat-toolbar color="primary">

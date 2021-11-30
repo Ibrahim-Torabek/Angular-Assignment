@@ -4,6 +4,7 @@ import {MessageService} from "../services/message.service";
 import {CreateComponentComponent} from "../create-component/create-component.component";
 import {MatDialog} from "@angular/material/dialog";
 import {MatSnackBar} from "@angular/material/snack-bar";
+import {ContentService} from "../services/content.service";
 
 
 
@@ -17,7 +18,11 @@ export class ContentCardComponent implements OnInit {
   @Input() content: Content;
   @Output() selectedContent = new EventEmitter<Content>();
 
-  constructor(public messageService: MessageService, public dialog: MatDialog, private snackBar: MatSnackBar) {
+  constructor(
+    public messageService: MessageService,
+    public dialog: MatDialog,
+    private snackBar: MatSnackBar,
+    private contentService: ContentService) {
     this.content = {author: "", body: "", id: 0, title: ""};
   }
 
@@ -36,9 +41,17 @@ export class ContentCardComponent implements OnInit {
     const dialogRef = this.dialog.open(CreateComponentComponent, {data: this.content})
 
     dialogRef.afterClosed().subscribe(result => {
+
+      // If clicked Cancel button, return
+      if (result == '') {
+        console.log("Empty result")
+        return
+      }
+      // If clicked Create button
       let content = result as Content;
-      if (result != '')
-        this.snackBar.open(`${content.title} updated successfully`, 'Close');
+      this.contentService.updateContent(content).subscribe(content => {
+        this.snackBar.open(`${this.content.title} updated successfully`,'Close');
+      })
     })
   }
 }

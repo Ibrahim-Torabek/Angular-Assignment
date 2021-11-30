@@ -32,7 +32,7 @@ export class CreateComponentComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public content: Content
   ) {
     if (content != null){
-      console.log(`Content: ${content.title}`);
+      //console.log(`Content: ${content.title}`);
       this.title = `Editing '${content.title}'`;
     } else {
       this.content = {title: '', author: '', body: '', type: ''}
